@@ -1,0 +1,23 @@
+<div
+  cdkDropList
+  #availableList="cdkDropList"
+  [cdkDropListData]="availableOptions"
+  [cdkDropListConnectedTo]="[selectedList]"
+  class="list-container"
+  (cdkDropListDropped)="drop($event)">
+  @for (option of availableOptions; track $index) {
+    <app-option-card title={{option}} cdkDrag></app-option-card>
+  }
+</div>
+
+<div
+  cdkDropList
+  #selectedList="cdkDropList"
+  [cdkDropListData]="selectedOptions"
+  [cdkDropListConnectedTo]="[availableList]"
+  (cdkDropListDropped)="drop($event)"
+  class="list-container">
+  @for (option of selectedOptions; track $index) {
+    <app-option-card title={{option}} cdkDrag></app-option-card>
+  }
+</div>
