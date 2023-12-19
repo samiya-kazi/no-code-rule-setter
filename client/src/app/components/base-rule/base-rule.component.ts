@@ -1,11 +1,19 @@
 import { Component } from '@angular/core';
-import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+// import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+  CdkDrag,
+  CdkDropList,
+} from '@angular/cdk/drag-drop';
 import { OptionCardComponent } from '../option-card/option-card.component';
 
 @Component({
   selector: 'app-base-rule',
   standalone: true,
-  imports: [DragDropModule, OptionCardComponent],
+  // imports: [DragDropModule, OptionCardComponent],
+  imports: [CdkDropList, CdkDrag, OptionCardComponent],
   templateUrl: './base-rule.component.html',
   styleUrl: './base-rule.component.css'
 })
