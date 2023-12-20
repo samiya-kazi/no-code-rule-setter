@@ -16,7 +16,9 @@
         class="list"
         (cdkDropListDropped)="drop($event)">
         @for (item of availableOptions; track item) {
-          <div class="example-box" cdkDrag>{{item}}</div>
+          <div class="example-box" cdkDrag>
+            <app-option-card title={{item}}></app-option-card>
+          </div>
         }
       </div>
     </div>
@@ -30,8 +32,10 @@
         [cdkDropListConnectedTo]="[availableList]"
         (cdkDropListDropped)="drop($event)"
         class="list">
-        @for (item of selectedOptions; track item) {
-          <div class="example-box" cdkDrag>{{item}}</div>
+        @for (item of selectedOptions; track $index) {
+          <div class="example-box" cdkDrag>
+            <app-option-card title={{item}} index={{$index}}></app-option-card>
+          </div>
         }
       </div>
     </div>
