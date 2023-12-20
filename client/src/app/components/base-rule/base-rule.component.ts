@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-// import {CdkDragDrop, DragDropModule, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -7,13 +6,13 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
+import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { OptionCardComponent } from '../option-card/option-card.component';
 
 @Component({
   selector: 'app-base-rule',
   standalone: true,
-  // imports: [DragDropModule, OptionCardComponent],
-  imports: [CdkDropList, CdkDrag, OptionCardComponent],
+  imports: [CdkDropList, CdkDrag, NzSwitchModule, OptionCardComponent],
   templateUrl: './base-rule.component.html',
   styleUrl: './base-rule.component.css'
 })
