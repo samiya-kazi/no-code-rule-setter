@@ -41,9 +41,6 @@ export class RulesPageComponent implements OnInit {
   }
 
   handleSubmit () {
-    console.log({
-      efficiency: this.efficiency, baseRules: this.baseRules, overrideRules: this.overrideRules
-    })
     if (this.checkRules()) {
       this.rulesService.setRules({ efficiency: this.efficiency, baseRules: this.baseRules, overrideRules: this.overrideRules });
     }

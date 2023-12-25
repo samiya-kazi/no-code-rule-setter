@@ -1,1 +1,5 @@
-<p>orders-page works!</p>
+<div class="page-container">
+  @for (order of orders; track order) {
+    <app-order-card [order]="order"></app-order-card>
+  }
+</div>

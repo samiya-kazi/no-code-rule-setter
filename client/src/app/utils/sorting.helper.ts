@@ -26,7 +26,7 @@ function sortOrdersByBaseRules (orders: IOrder[], baseRules: IBaseRule[]) {
 
     for (const order of oldOrders) {
       if (rule.type === 'vip') (order.vip ? filtered : unfiltered).push(order);
-      (order.type === rule.type ? filtered : unfiltered).push(order);
+      else (order.type === rule.type ? filtered : unfiltered).push(order);
     }
 
     newOrders.push(...applyHiddenRulesForOrder(filtered));
