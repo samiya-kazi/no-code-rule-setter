@@ -24,7 +24,6 @@ export class OverrideRulesComponent {
   @Output() newOverrideRules = new EventEmitter<IOverrideRule[]>();
 
   drop(event: CdkDragDrop<IOverrideRule[]>) {
-    console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
