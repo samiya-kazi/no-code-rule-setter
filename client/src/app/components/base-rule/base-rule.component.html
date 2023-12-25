@@ -47,6 +47,6 @@
   <h2>Order Assigning</h2>
   <div class="switch-container">
     <p>Choose how orders will be assigned to the kitchen staff. "Efficiency" will take into account your staffs past efficiency records and current workload when assigning orders. "Workload" will assign orders only based on who is free at the given time.</p>
-    <nz-switch nzCheckedChildren="Efficiency" nzUnCheckedChildren="Workload"></nz-switch>
+    <nz-switch nzCheckedChildren="Efficiency" nzUnCheckedChildren="Workload" [(ngModel)]="efficiency" (ngModelChange)="emitEfficiencyChange($event)"></nz-switch>
   </div>
 </div>

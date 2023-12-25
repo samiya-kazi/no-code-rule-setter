@@ -1,4 +1,13 @@
 <div class="page-container">
-  <app-base-rule></app-base-rule>
-  <app-override-rules></app-override-rules>
+  <div class="rule-type-container">
+    <app-base-rule (baseRuleChange)="handleNewBaseRules($event)" (efficiencyChange)="handleEfficiency($event)"></app-base-rule>
+    <app-override-rules (newOverrideRules)="handleNewOverrideRules($event)"></app-override-rules>
+  </div>
+  <div class="button-container">
+    
+    <button nz-button nzType="primary" nzSize="large" (click)="handleSubmit()" [disabled]="!checkRules()">
+      <span nz-icon nzType="save" nzTheme="fill"></span>
+      Save
+    </button>
+  </div>
 </div>

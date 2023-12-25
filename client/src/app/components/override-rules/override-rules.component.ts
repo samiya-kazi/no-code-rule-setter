@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -7,6 +7,7 @@ import {
   CdkDropList,
 } from '@angular/cdk/drag-drop';
 import { OverrideOptionCardComponent } from '../override-option-card/override-option-card.component';
+import { IOverrideRule } from '../../interfaces/overrideRule.interface';
 
 @Component({
   selector: 'app-override-rules',
@@ -17,10 +18,12 @@ import { OverrideOptionCardComponent } from '../override-option-card/override-op
 })
 export class OverrideRulesComponent {
 
-  possibleOverrides : { title: string, maxTime: number }[] = [{ title: "Rider distance", maxTime: 0 }, { title: "Customer wait", maxTime: 0 }, { title: "Course wait", maxTime: 0 }];
-  selectedOverrides : { title: string, maxTime: number }[] = [];
+  possibleOverrides : IOverrideRule[] = [{ title: "Rider distance", type: "rider-arrival-time", maxTime: 0 }, { title: "Customer wait", type: "customer-wait-time", maxTime: 0 }, { title: "Course wait", type: "course-wait-time", maxTime: 0 }];
+  selectedOverrides : IOverrideRule[] = [];
 
-  drop(event: CdkDragDrop<{ title: string, maxTime: number }[]>) {
+  @Output() newOverrideRules = new EventEmitter<IOverrideRule[]>();
+
+  drop(event: CdkDragDrop<IOverrideRule[]>) {
     console.log(event);
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -32,5 +35,11 @@ export class OverrideRulesComponent {
         event.currentIndex,
       );
     }
+
+    this.emitNewOverrideRules();
+  }
+
+  emitNewOverrideRules () {
+    this.newOverrideRules.emit(this.selectedOverrides);
   }
 }
